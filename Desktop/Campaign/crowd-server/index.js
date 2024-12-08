@@ -53,7 +53,15 @@ async function run() {
 
 
 
+    app.get('/myCampaign/:email', async (req, res) => {
+      const userEmail = req.params.email;  // Correct way to extract email from params
+      console.log(userEmail)
+      const query = {userEmail: userEmail};
+      const result = await campaignCollection.find(query).toArray();
+      res.send(result)
 
+
+    });
 
 
     
